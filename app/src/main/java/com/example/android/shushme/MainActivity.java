@@ -92,6 +92,9 @@ public class MainActivity extends AppCompatActivity implements
         // - Calls Places.GeoDataApi.getPlaceById with that list of IDs
         // Note: When calling Places.GeoDataApi.getPlaceById use the same GoogleApiClient created
         // in MainActivity's onCreate (you will have to declare it as a private member)
+    private void refreshPlacesData() {
+
+    }
 
     //TODO (8) Set the getPlaceById callBack so that onResult calls the Adapter's swapPlaces with the result
 
