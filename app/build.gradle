@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+def GOOGLE_MAPS_API_DEBUG = '"' + shushGoogleMapsApiDebug + '"' ?: '"Define Google Maps API key"';
+def GOOGLE_MAPS_API_RELEASE = '"' + shushGoogleMapsApiRelease + '"' ?: '"Define Google Maps API key"';
 
 android {
     compileSdkVersion 25
@@ -12,7 +14,11 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            manifestPlaceholders = [ google_api_key:GOOGLE_MAPS_API_DEBUG ]
+        }
         release {
+            manifestPlaceholders = [ google_api_key:GOOGLE_MAPS_API_RELEASE ]
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
